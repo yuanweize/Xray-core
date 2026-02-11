@@ -38,7 +38,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout codebase
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
+        with:
+          ref: upstream
       - name: Check Proto Version Header
         run: |
           head -n 4 core/config.pb.go > ref.txt
@@ -61,7 +63,9 @@ jobs:
         os: [windows-latest, ubuntu-latest, macos-latest]
     steps:
       - name: Checkout codebase
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
+        with:
+          ref: upstream
       - name: Set up Go
         uses: actions/setup-go@v6
         with:
